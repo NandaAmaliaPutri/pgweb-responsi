@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS Wisata Surakarta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="icon/gis.png" type="image/x-icon" />
+
+    <!-- Custom styles for background -->
+    <style>
+        /* Latar belakang hitam untuk seluruh halaman */
+        body {
+            background-color: #000000;
+            /* Warna latar belakang hitam */
+            color: #000000;
+            /* Mengubah warna teks menjadi putih agar kontras dengan latar belakang hitam */
+        }
+
+        /* Optional: Latar belakang hitam untuk header */
+        .header_section {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Optional: Latar belakang hitam untuk bagian hero */
+        .hero_bg_box {
+            background-color: #000000;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="hero_bg_box">
+        <div class="img-box">
+            <img src=" alt="Background Image" class="img-fluid" />
+        </div>
+    </div>
+
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container-fluid">
+                <div class="contact_link-container">
+                    <a href="#" class="contact_link1">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <span> Make Your Journey Here! </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <span> Wisata Surakarta</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto"> <!-- Adding ml-auto to this -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="profil.html">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="peta.html">Maps</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="daftar.html">Destinations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pembuat.html">Author</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- End Header Section -->
+
+    <!-- Tempat untuk memuat tabel dari daftar.php -->
+    <div id="data-tabel" class="container mt-5"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Memuat daftar.php ke dalam div dengan id 'data-tabel'
+            $('#data-tabel').load('daftar.php');
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

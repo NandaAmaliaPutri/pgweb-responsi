@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Peta Wisata Surakarta</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="WebGIS, Surakarta, Wisata" />
+    <meta name="description" content="WebGIS untuk persebaran objek wisata di Surakarta" />
+    <meta name="author" content="Your Name" />
+    <link rel="shortcut icon" href="icon/gis.png" type="image/x-icon" />
+
+    <title>WebGIS Wisata Surakarta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+
+    <!-- Custom CSS for the map and legend positioning -->
+    <style>
+        #map {
+            width: 100%;
+            height: 700px;
+            position: relative;
+        }
+
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #legend h5 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #legend img {
+            width: 40%;
+        }
+
+        /* Styling modal to make it smaller and more attractive */
+        .modal-dialog {
+            max-width: 400px;
+            /* Smaller modal width */
+            margin: 1.75rem auto;
+            /* Center the modal vertically */
+        }
+
+        .modal-content {
+            border-radius: 8px;
+            /* Round the corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Shadow for a floating effect */
+        }
+
+        .modal-header {
+            background-color: #0c24a8;
+            /* Attractive header background */
+            color: white;
+            border-radius: 8px 8px 0 0;
+            padding: 12px 15px;
+        }
+
+        .modal-body {
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .modal-footer {
+            padding: 10px 15px;
+            border-top: none;
+        }
+
+        /* Change close button color to black */
+        .btn-close {
+            background: black;
+            /* Black background */
+            color: white;
+            /* White text */
+            border-radius: 50%;
+            padding: 8px 10px;
+            border: none;
+        }
+
+        /* Hover effect for close button */
+        .btn-close:hover {
+            background: #333;
+            /* Darker shade of black on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero_area">
+        <!-- Header Section -->
+        <div class="hero_bg_box">
+            <div class="img-box">
+                <img src="data/home.jpeg" alt="Background Image" />
+            </div>
+        </div>
+
+        <header class="header_section">
+            <div class="header_top">
+                <div class="container-fluid">
+                    <div class="contact_link-container">
+                        <a href="#" class="contact_link1">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span> Make Your Journey Here! </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container">
+                        <a class="navbar-brand" href="index.html">
+                            <span> Wisata Surakarta</span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="index.html">Home <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profil.html"> Profil</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="peta.html"> Maps </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="daftar.html"> Destinations </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pembuat.html">Author</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!-- End Header Section -->
+        <div id="map"></div>
+
+        <!-- Modal untuk Menampilkan Informasi -->
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalLabel">Detail Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <!-- Informasi akan dimasukkan di sini -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legenda -->
+        <div id="legend">
+            <h5>Legenda</h5>
+            <img src="http://localhost:8080/geoserver/responsi/wms?service=WMS&version=1.1.0&request=GetLegendGraphic&layer=responsi:JALAN_LN_25K&format=image/png"
+                alt="Legenda Jalan" />
+            <img src="http://localhost:8080/geoserver/responsi/wms?service=WMS&version=1.1.0&request=GetLegendGraphic&layer=responsi:ADMINISTRASIDESA_AR_25K&format=image/png"
+                alt="Legenda Administrasi" />
+        </div>
+    </div>
+
+    <script>
+        // Inisialisasi Peta
+        var map = L.map('map').setView([-7.5666, 110.8166], 12);
+
+        // Tambahkan Basemap
+        var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        });
+
+        var rupabumiindonesia = L.tileLayer('https://geoservices.big.go.id/rbi/rest/services/BASEMAP/Rupabumi_Indonesia/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Badan Informasi Geospasial'
+        });
+
+        var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        });
+
+        // Menampilkan Data dari GeoServer
+        var jalanLayer = L.tileLayer.wms("http://localhost:8080/geoserver/responsi/wms", {
+            layers: 'responsi:JALAN_LN_25K',
+            format: 'image/png',
+            transparent: true,
+            attribution: "GeoServer"
+        }).addTo(map);
+
+        var adminLayer = L.tileLayer.wms("http://localhost:8080/geoserver/responsi/wms", {
+            layers: 'responsi:ADMINISTRASIDESA_AR_25K',
+            format: 'image/png',
+            transparent: true,
+            attribution: "GeoServer"
+        }).addTo(map);
+
+        // Menampilkan Titik GeoJSON dari file titikwisata.geojson
+        $.getJSON('coba.geojson', function (data) {
+            L.geoJSON(data, {
+                pointToLayer: function (feature, latlng) {
+                    // Menggunakan ikon kustom dari folder icon/home_marker
+                    var customIcon = L.icon({
+                        iconUrl: 'icon/home_marker.png', // Path ke ikon
+                        iconSize: [50, 50], // Ukuran ikon
+                        iconAnchor: [16, 32], // Titik jangkar untuk ikon
+                        popupAnchor: [0, -32] // Penyesuaian popup
+                    });
+
+                    return L.marker(latlng, { icon: customIcon });
+                },
+                onEachFeature: function (feature, layer) {
+                    // Menambahkan Tooltip dengan nama wisata
+                    layer.bindTooltip(feature.properties.nama_wisat).openTooltip();
+
+                    // Menambahkan event click untuk menampilkan detail di modal
+                    layer.on('click', function () {
+                        $('#modalBody').html(`
+                            <strong>Object Name:</strong> ${feature.properties.nama_wisat}<br>
+                            <strong>Address:</strong> ${feature.properties.alamat}<br>
+                            <strong>Information:</strong> <a href="${feature.properties.link}" target="_blank">Click Here For Mode Information!</a>
+                        `);
+                        $('#infoModal').modal('show');
+                    });
+                }
+            }).addTo(map);
+        });
+
+        // Kontrol layer
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "Esri World Imagery": Esri_WorldImagery,
+            "Rupabumi Indonesia": rupabumiindonesia,
+            "OpenTopoMap": OpenTopoMap
+        };
+
+        var overlayMaps = {
+            "Batas Administrasi Desa": adminLayer,
+            "Jalan": jalanLayer
+        };
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+        // Menambahkan Skala
+        var scale = L.control.scale({
+            position: 'bottomright'
+        });
+        scale.addTo(map);
+
+        // Menambahkan fitur Geolocation
+        L.control.locate({
+            position: 'topleft',
+            drawCircle: true,
+            follow: true,
+            setView: true,
+            keepCurrentZoomLevel: false,
+            markerStyle: {
+                weight: 2,
+                opacity: 0.8,
+                fillOpacity: 0.8
+            },
+            circleStyle: {
+                weight: 1,
+                clickable: false
+            },
+            icon: 'fa fa-location-arrow',
+            metric: true,
+            strings: {
+                title: "Show my location",
+                popup: "Your current location",
+                outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+            }
+        }).addTo(map);
+
+    </script>
+
+</body>
+
+</html>
