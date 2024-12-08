@@ -35,38 +35,65 @@
 
     <style>
         body {
-            background-image: #1B1833;
-            background-size: cover;
-            background-position: center;
-            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1B1833, #282C34);
+            font-family: 'Roboto', sans-serif;
             color: white;
             margin: 0;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            padding: 0 15px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #aaa;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-item.active .nav-link {
+            color: #52b4ec;
         }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            min-height: 80vh;
+            margin-top: 60px;
         }
 
         .profile-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
             border-radius: 15px;
-            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
             display: flex;
+            flex-direction: row; /* Mengatur gambar dan teks berdampingan */
             align-items: center;
-            justify-content: center;
             max-width: 1000px;
-            width: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: scale(1.00);
-            box-shadow: 0px 25px 35px rgba(0, 0, 0, 0.2);
+            width: 80%; /* Persentase ukuran untuk responsif */
+            height: 400px; /* Menambah tinggi card profil */
         }
 
         .profile-card img {
@@ -74,54 +101,48 @@
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-            margin-right: 40px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            margin-right: 30px; /* Memberi jarak antara gambar dan teks */
         }
 
         .profile-info {
-            text-align: center;
+            text-align: left; /* Menyesuaikan teks ke sisi kiri */
         }
 
         .profile-info h2 {
-            font-size: 38px;
-            /* Ukuran font lebih besar */
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 32px; /* Memperbesar ukuran teks */
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1B1833;
+            margin-left: 25px;
         }
 
         .profile-info p {
-            font-size: 24px;
-            /* Ukuran font lebih besar */
-            margin-top: 10px;
-            color: #555;
+            font-size: 18px;
+            margin: 5px 0;
+            margin-left: 25px;
+            color: #444;
         }
 
-        .github-link a,
-        .email-link a {
-            color: #1e3a8a;
+        .profile-info .github-link a,
+        .profile-info .email-link a {
+            color: #007bff;
             text-decoration: none;
-            font-size: 24px;
-            /* Ukuran font lebih besar */
-            transition: color 0.3s ease;
+            font-size: 16px;
+            margin-left: 25px;
         }
 
-        .github-link a:hover,
-        .email-link a:hover {
-            color: #52b4ec;
+        .profile-info .github-link a:hover,
+        .profile-info .email-link a:hover {
             text-decoration: underline;
+            margin-left: 25px;
         }
 
-        /* Adjust profile container for centering */
-        .container {
-            height: calc(100vh - 150px);
-            justify-content: center;
-        }
-
-        .profile-card {
-            max-width: 1000px;
-            padding: 60px;
+        footer {
             text-align: center;
+            padding: 10px 0;
+            color: #bbb;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -182,33 +203,32 @@
     </header>
     <!-- End Header Section -->
 
+    <!-- Profile Card -->
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 profile-card">
-                <!-- Foto Profil di Sisi Kiri -->
-                <img src="icon/profile.png" alt="Foto Profil">
-
-                <!-- Informasi Pembuat di Sisi Kanan -->
-                <div class="profile-info">
-                    <h2>Nanda Amalia Putri</h2>
-                    <p>23/514872/SV/22441</p>
-                    <p>D4 Sistem Informasi Geografis</p>
-                    <p>Sekolah Vokasi </p>
-                    <p>Universitas Gadjah Mada</p>
-
-                    <!-- Link GitHub -->
-                    <div class="github-link">
-                        <a href="https://github.com/NandaAmaliaPutri" target="_blank">GitHub</a>
-                    </div>
-
-                    <!-- Link Email -->
-                    <div class="email-link">
-                        <a href="mailto:nandaamaliaputri@mail.ugm.ac.id">nandaamaliaputri@mail.ugm.ac.id</a>
-                    </div>
+        <div class="profile-card">
+            <!-- Foto Profil -->
+            <img src="icon/profile.png" alt="Foto Profil">
+            <!-- Informasi Profil -->
+            <div class="profile-info">
+                <h2>Nanda Amalia Putri</h2>
+                <p>23/514872/SV/22441</p>
+                <p>D4 Sistem Informasi Geografis</p>
+                <p>Sekolah Vokasi</p>
+                <p>Universitas Gadjah Mada</p>
+                <div class="github-link">
+                    <a href="https://github.com/NandaAmaliaPutri" target="_blank">GitHub</a>
+                </div>
+                <div class="email-link">
+                    <a href="mailto:nandaamaliaputri@mail.ugm.ac.id">nandaamaliaputri@mail.ugm.ac.id</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 WebGIS Wisata Surakarta | Designed by Nanda Amalia Putri
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

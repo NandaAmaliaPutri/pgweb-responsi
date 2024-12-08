@@ -41,7 +41,6 @@ echo '<style>
         color: transparent;
         background: linear-gradient(45deg, #ff00cc, #00ffff);
         background-clip: text;
-        text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
     }
 
     table {
