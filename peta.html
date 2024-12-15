@@ -245,30 +245,28 @@
             attribution: "GeoServer"
         }).addTo(map);
 
-        // Menampilkan Titik GeoJSON dari file titikwisata.geojson
-        $.getJSON('coba.geojson', function (data) {
+         // Menampilkan Titik GeoJSON
+         $.getJSON('coba.geojson', function (data) {
             L.geoJSON(data, {
                 pointToLayer: function (feature, latlng) {
-                    // Menggunakan ikon kustom dari folder icon/home_marker
                     var customIcon = L.icon({
-                        iconUrl: 'icon/home_marker.png', // Path ke ikon
-                        iconSize: [50, 50], // Ukuran ikon
-                        iconAnchor: [16, 32], // Titik jangkar untuk ikon
-                        popupAnchor: [0, -32] // Penyesuaian popup
+                        iconUrl: 'icon/home_marker.png',
+                        iconSize: [50, 50],
+                        iconAnchor: [16, 32],
+                        popupAnchor: [0, -32]
                     });
-
                     return L.marker(latlng, { icon: customIcon });
                 },
                 onEachFeature: function (feature, layer) {
-                    // Menambahkan Tooltip dengan nama wisata
                     layer.bindTooltip(feature.properties.nama_wisat).openTooltip();
 
-                    // Menambahkan event click untuk menampilkan detail di modal
                     layer.on('click', function () {
+                        var coords = layer.getLatLng();
                         $('#modalBody').html(`
                             <strong>Object Name:</strong> ${feature.properties.nama_wisat}<br>
                             <strong>Address:</strong> ${feature.properties.alamat}<br>
-                            <strong>Information:</strong> <a href="${feature.properties.link}" target="_blank">Click Here For Mode Information!</a>
+                            <strong>Information:</strong> <a href="${feature.properties.link}" target="_blank">Click Here for More Information!</a><br>
+                            <strong>Google Maps:</strong> <a href="https://www.google.com/maps?q=${coords.lat},${coords.lng}" target="_blank">Open in Google Maps</a>
                         `);
                         $('#infoModal').modal('show');
                     });

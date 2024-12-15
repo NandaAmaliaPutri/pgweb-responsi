@@ -35,12 +35,11 @@ echo '<style>
     h1 {
         font-family: "Poppins", sans-serif;
         font-size: 32px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         text-align: center;
-        font-weight: 600;
-        color: transparent;
-        background: linear-gradient(45deg, #ff00cc, #00ffff);
-        background-clip: text;
+        font-weight: 700;
+        color: #1e3a8a;
+
     }
 
     table {
@@ -51,7 +50,7 @@ echo '<style>
         background-color: #fff;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        text-align: center;
+        text-align: justify;
         overflow: hidden;
     }
 
@@ -238,4 +237,3 @@ if ($result->num_rows > 0) {
 
 // Tutup koneksi
 $conn->close();
-?>
