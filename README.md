@@ -9,21 +9,21 @@ WebGIS ini merupakan aplikasi peta interaktif yang dirancang untuk memvisualisas
 - **Menambahkan Objek Wisata Hidden Gem**: Menampilkan destinasi wisata tersembunyi (hidden gem) di Kota Surakarta yang ditambahkan oleh pengguna untuk memberikan pengalaman unik kepada wisatawan.
 
 ## Komponen Pembangun Produk
-- **HTML: Untuk struktur dasar halaman web.
-- **CSS: Untuk desain dan tata letak halaman.
-- **PHP: Untuk logika backend dan interaksi dengan database.
-- **Bootstrap: Untuk mendukung tampilan responsif dan estetis.
-- **Database MySQL: Untuk penyimpanan data destinasi wisata.
-- **Font Awesome: Untuk ikon tambahan pada antarmuka.
-- **LeafletJS: Library JavaScript untuk menampilkan peta interaktif.
-- **JavaScript: Untuk interaksi dinamis di sisi klien.
+- **HTML**: Untuk struktur dasar halaman web.
+- **CSS**: Untuk desain dan tata letak halaman.
+- **PHP**: Untuk logika backend dan interaksi dengan database.
+- **Bootstrap**: Untuk mendukung tampilan responsif dan estetis.
+- **Database MySQL**: Untuk penyimpanan data destinasi wisata.
+- **Font Awesome**: Untuk ikon tambahan pada antarmuka.
+- **LeafletJS**: Library JavaScript untuk menampilkan peta interaktif.
+- **JavaScript**: Untuk interaksi dinamis di sisi klien.
 
 ## Sumber Data
-- **GeoServer: Untuk menyediakan layanan web pemetaan (WMS/WFS).
-- **GeoJSON: Untuk menyimpan dan menampilkan data geospasial.
+- **GeoServer**: Untuk menyediakan layanan web pemetaan (WMS/WFS).
+- **GeoJSON**: Untuk menyimpan dan menampilkan data geospasial.
 
 ## Komponen Penting
-![Halaman Utama](fitur/landing.jpg)
+![Halaman Utama](fitur/landing.png)
 
 
 WebGIS ini diharapkan dapat menjadi media digital yang bermanfaat bagi pemerintah daerah, pelaku pariwisata, dan masyarakat dalam mendukung pengelolaan serta pengembangan potensi wisata di Kota Surakarta.
